@@ -17,18 +17,18 @@ class StateFactory {
                 sum = plusScoreIfNotBust(sum)
             }
             if (sum < BLACK_JACK_SCORE) {
-                return Hit()
+                return Hit(card1, card2)
             }
             return Blackjack()
         }
 
-        private fun plusScoreIfNotBust(sum: Int): Int {
-            if (isBust(sum)) {
-                return sum
+        private fun plusScoreIfNotBust(score: Int): Int {
+            if (isBust(score + PLUS_SCORE)) {
+                return score
             }
-            return sum + PLUS_SCORE
+            return score + PLUS_SCORE
         }
 
-        private fun isBust(score: Int): Boolean = score + PLUS_SCORE > BLACK_JACK_SCORE
+        private fun isBust(score: Int): Boolean = score > BLACK_JACK_SCORE
     }
 }

@@ -1,5 +1,8 @@
-package jaesung
+package jaesung.test
 
+import jaesung.Denomination
+import jaesung.PlayingCard
+import jaesung.Suit
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 

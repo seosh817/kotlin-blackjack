@@ -1,5 +1,8 @@
-package jaesung
+package jaesung.test
 
+import jaesung.CLUBS_ACE
+import jaesung.CLUBS_KING
+import jaesung.CLUBS_TEN
 import jaesung.state.Blackjack
 import jaesung.state.Hit
 import jaesung.state.State
