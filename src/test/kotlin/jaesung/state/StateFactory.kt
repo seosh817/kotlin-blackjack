@@ -9,17 +9,23 @@ class StateFactory {
         private const val BLACK_JACK_SCORE: Int = 21
 
         fun draw(card1: PlayingCard, card2: PlayingCard): State {
-
             val cards = listOf(card1, card2)
-            var sum = cards.sumOf { it.score }
-            val countOfAce = cards.count { it.isAce }
-            repeat(countOfAce) {
-                sum = plusScoreIfNotBust(sum)
-            }
-            if (sum < BLACK_JACK_SCORE) {
+            val score = cards.score()
+            // 점수계산에 따라서 실제 상태를 생성
+            if (score < BLACK_JACK_SCORE) {
                 return Hit(card1, card2)
             }
             return Blackjack()
+        }
+
+        private fun List<PlayingCard>.score(): Int {
+            // 점수계산
+            var sum = this.sumOf { it.score }
+            val countOfAce = this.count { it.isAce }
+            repeat(countOfAce) {
+                sum = plusScoreIfNotBust(sum)
+            }
+            return sum
         }
 
         private fun plusScoreIfNotBust(score: Int): Int {
