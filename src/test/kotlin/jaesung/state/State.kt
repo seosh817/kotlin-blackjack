@@ -1,3 +1,6 @@
 package jaesung.state
 
-interface State
+interface State {
+    fun isFinished(): Boolean
+    fun profit(money: Double): Double
+}

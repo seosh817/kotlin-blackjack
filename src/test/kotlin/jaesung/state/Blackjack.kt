@@ -1,3 +1,5 @@
 package jaesung.state
 
-class Blackjack : State
+class Blackjack : Finished() {
+    override val earningRate: Double = 1.5
+}

@@ -1,3 +1,5 @@
 package jaesung.state
 
-class Bust : State
+class Bust : Finished() {
+    override val earningRate: Double = 0.0
+}
