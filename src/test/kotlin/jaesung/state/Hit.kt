@@ -9,17 +9,14 @@ class Hit(
 ) : State {
 
     fun draw(card3: PlayingCard): State {
-        val cards = Hands(listOf(card1, card2, card3))
-        val score = cards.score()
-
-        if (score < BLACK_JACK_SCORE) {
-            return Hit(card1, card2)
+        val hands = Hands(listOf(card1, card2, card3))
+        if (hands.isBust) {
+            return Bust()
         }
-
-        return Bust()
+        return Hit(card1, card2)
     }
 
-    companion object {
-        private const val BLACK_JACK_SCORE: Int = 21
+    fun stay(): State {
+        return Stay()
     }
 }
