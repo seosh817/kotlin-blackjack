@@ -6,13 +6,7 @@ import jaesung.PlayingCard
 class Hit(
     private val card1: PlayingCard,
     private val card2: PlayingCard
-) : State {
-
-    override fun isFinished(): Boolean = false
-
-    override fun profit(money: Double): Double {
-        throw UnsupportedOperationException()
-    }
+) : Running() {
 
     fun draw(card3: PlayingCard): State {
         val hands = Hands(listOf(card1, card2, card3))
